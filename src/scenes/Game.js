@@ -1,4 +1,7 @@
 import { Scene } from "phaser";
+//import Player from '../entities/living/Player';
+//import Zombie from '../entities/living/Zombie';
+//import Living from '../entities/living/Living';
 
 export class Game extends Scene {
   constructor() {
@@ -32,5 +35,13 @@ export class Game extends Scene {
     this.input.once("pointerdown", () => {
       this.scene.start("GameOver");
     });
+
+
+
+    //const player = new Living(this.scene, 2, 2);
+
+
+    //const zombie = new Living(this.scene, 4, 4);
+
   }
 }
