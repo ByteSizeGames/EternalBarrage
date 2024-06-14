@@ -39,3 +39,6 @@ npm run build
 - https://www.gamedevmarket.net/asset/space-shooter-1-5280
 - https://www.gamedevmarket.net/asset/medieval-fantasy-1-5282
 - https://www.gamedevmarket.net/asset/kyrises-free-16x16-rpg-icon-pack
+
+### Creatures
+- https://deepdivegamestudio.itch.io/undead-asset-pack
