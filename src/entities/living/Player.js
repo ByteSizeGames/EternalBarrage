@@ -1,30 +1,24 @@
 import Living from './Living';
 
-let Player = Phaser.Class({
+class Player extends Living {
+  constructor(scene, x, y) {
+    super(scene, x, y, "HalflingRanger");
 
-    Extends: Living,
+    this.name = `Player${this.id}`;
 
-    initialize: function Player(scene, x, y) {
-        //Phaser.GameObjects.Image.call(this, scene)
+    this.setOrigin(0);
 
-        this.name = `Player${this.id}`;
+    this.health = 100;
+    this.maxHealth = 100;
+    this.energy = 0;
+    this.maxEnergy = 0;
 
-        this.setTexture('lolwhat');
-        this.setPosition(x * 16, y * 16);
-        this.setOrigin(0);
+    scene.add.existing(this);
+  }
 
-        this.health = 100;
-        this.maxHealth = 100;
-        this.energy = 0;
-        this.maxEnergy = 0;
-
-        //scene.children.add(this);
-    },
-
-    eat: function () {
-        this.total++;
-    }
-
-});
+  eat() {
+    this.total++;
+  }
+}
 
 export default Player;

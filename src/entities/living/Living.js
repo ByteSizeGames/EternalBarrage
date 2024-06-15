@@ -3,8 +3,8 @@ import { GameObjects } from "phaser";
 let livingCount = 0;
 
 class Living extends GameObjects.Sprite {
-  constructor(scene, x, y) {
-    super(scene, x * 16, y * 16, "lolwhat");
+  constructor(scene, x, y, texture) {
+    super(scene, x * 16, y * 16, texture);
 
     this.id = ++livingCount;
     this.name = `LivingCreature${this.id}`;
