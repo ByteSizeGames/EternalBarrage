@@ -1,6 +1,6 @@
-import Living from './Living';
+import Mobile from './Mobile';
 
-class Zombie extends Living {
+class Zombie extends Mobile {
   constructor(scene, x, y) {
     super(scene, x, y, "MutilatedStumbler");
 
@@ -13,11 +13,13 @@ class Zombie extends Living {
     this.energy = 0;
     this.maxEnergy = 0;
 
-    scene.add.existing(this);
+    this.play('zombie_idle');
   }
 
-  eat() {
-    this.total++;
+  update(time, delta) {
+    super.update(time, delta)
+
+
   }
 }
 

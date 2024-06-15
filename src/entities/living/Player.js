@@ -13,11 +13,13 @@ class Player extends Living {
     this.energy = 0;
     this.maxEnergy = 0;
 
-    scene.add.existing(this);
+    this.play('player_idle');
   }
 
-  eat() {
-    this.total++;
+  update(time, delta) {
+    super.update(time, delta)
+
+    // DO STUFF HERE TO MOVE THE PLAYER AROUND THE MAP BASED ON INPUT FROM THE PLAYER (KEYBOARD OR MOUSE) — lol copilot
   }
 }
 
