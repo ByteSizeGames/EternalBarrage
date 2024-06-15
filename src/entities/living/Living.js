@@ -1,33 +1,28 @@
-import { Math } from 'phaser';
+import { GameObjects } from "phaser";
 
-let livingCount = 0
+let livingCount = 0;
 
-let Living = Phaser.Class({
+class Living extends GameObjects.Sprite {
+  constructor(scene, x, y) {
+    super(scene, x * 16, y * 16, "lolwhat");
 
-    Extends: Phaser.GameObjects.Sprite,
+    this.id = ++livingCount;
+    this.name = `LivingCreature${this.id}`;
 
-    initialize: function Living(scene, x, y) {
-        Phaser.GameObjects.Sprite.call(this, scene)
+    this.setOrigin(0);
 
-        this.id = ++livingCount;
-        this.name = `LivingCreature${this.id}`;
+    this.health = 100;
+    this.maxHealth = 100;
+    this.energy = 0;
+    this.maxEnergy = 0;
+    this.total = 0;
 
-        this.setTexture('lolwhat');
-        this.setPosition(x * 16, y * 16);
-        this.setOrigin(0);
+    scene.add.existing(this);
+  }
 
-        this.health = 100;
-        this.maxHealth = 100;
-        this.energy = 0;
-        this.maxEnergy = 0;
-
-        scene.children.add(this);
-    },
-
-    eat: function () {
-        this.total++;
-    }
-
-});
+  eat() {
+    this.total++;
+  }
+}
 
 export default Living;
