@@ -13,13 +13,14 @@ class Zombie extends Mobile {
     this.energy = 0;
     this.maxEnergy = 0;
 
+    //this.attackSpeed = 0.01;
+    this.attackSpeed = Math.random() * 0.05;
+
     this.play('zombie_idle');
   }
 
   update(time, delta) {
-    super.update(time, delta)
-
-
+    super.update(time, delta);
   }
 }
 

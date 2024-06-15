@@ -17,6 +17,13 @@ class Mobile extends Living {
   update(time, delta) {
     super.update(time, delta);
 
+    if (this.health <= 0) {
+      this.destroy();
+      this.guiText.destroy();
+      this.guiHealthUnderlay.destroy();
+      this.guiHealth.destroy();
+    }
+
     if (this.target) {
       if (this.canSee(this.target)) {
         const dx = this.target.x - this.x;

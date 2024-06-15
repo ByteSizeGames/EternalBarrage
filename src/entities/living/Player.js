@@ -13,13 +13,24 @@ class Player extends Living {
     this.energy = 0;
     this.maxEnergy = 0;
 
+    // TODO: FIX MAGIC NUMBER SPEED
+    this.speed = 0.032;
+
+    this.attackSpeed = 0.1;
+
     this.play('player_idle');
   }
 
   update(time, delta) {
-    super.update(time, delta)
+    super.update(time, delta);
 
-    // DO STUFF HERE TO MOVE THE PLAYER AROUND THE MAP BASED ON INPUT FROM THE PLAYER (KEYBOARD OR MOUSE) — lol copilot
+    if (!this.isAlive()) {
+      console.log("Player died.");
+      return;
+    }
+
+    this.x += this.xModifier * this.speed * delta;
+    this.y += this.yModifier * this.speed * delta;
   }
 }
 
