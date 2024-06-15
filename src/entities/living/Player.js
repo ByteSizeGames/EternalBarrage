@@ -29,6 +29,9 @@ class Player extends Living {
       return;
     }
 
+    // TODO: This is bad, the API should be used instead (velocity, etc)
+    // https://stackoverflow.com/a/66355900/503508
+
     this.x += this.xModifier * this.speed * delta;
     this.y += this.yModifier * this.speed * delta;
   }
