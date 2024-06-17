@@ -1,4 +1,6 @@
 import { Scene } from "phaser";
+import { WaveCollapse } from "wave-collapse";
+import { DungeonTilesWfcDefinition } from "../components/DungeonTiles";
 import Player from "../entities/living/Player";
 import Zombie from "../entities/living/Zombie";
 
@@ -13,18 +15,8 @@ export class Game extends Scene {
   create() {
     this.defineAnimations();
 
-    const level = [
-      [0, 1, 1, 1, 1, 1, 1, 1, 1, 5],
-      [0, 6, 6, 6, 6, 6, 6, 6, 6, 5],
-      [0, 6, 6, 6, 6, 6, 6, 6, 6, 5],
-      [0, 6, 6, 6, 6, 6, 6, 6, 6, 5],
-      [0, 6, 6, 6, 6, 6, 6, 6, 6, 5],
-      [0, 6, 6, 6, 6, 6, 6, 6, 6, 5],
-      [0, 6, 6, 6, 6, 6, 6, 6, 6, 5],
-      [0, 6, 6, 6, 6, 6, 6, 6, 6, 5],
-      [0, 6, 6, 6, 6, 6, 6, 6, 6, 5],
-      [40, 41, 41, 41, 41, 41, 41, 41, 41, 45],
-    ];
+    const wfcModel = new WaveCollapse(DungeonTilesWfcDefinition);
+    const level = wfcModel.generate(30, 30);
 
     const map = this.make.tilemap({
       data: level,
@@ -40,7 +32,7 @@ export class Game extends Scene {
 
     this.cameras.main
       .setBackgroundColor(0x000000)
-      .setZoom(4)
+      .setZoom(1)
       .setBounds(0, 0, map.widthInPixels, map.heightInPixels)
       .centerToBounds();
     //.startFollow(this.player); ?
